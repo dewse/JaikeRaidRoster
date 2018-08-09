@@ -3,22 +3,21 @@
 First update: I started using a googlesheet someone created to keep track of relic types and class roster for raids since we expected relic stacking to be an issue early xpac. Anyway, I've longed since then created more tabs and functionality from that original sheet. At this time this is what it containts on the main page:
 
 * Each tab automatically fills player's name in their rows.
-* Keeping tab of many of the player's values, such as Rank, Ilvl, number of BiS legendaries (2-4th BiS worth 0.5 value)
-* Category to input each tier pieces raiders have, and sums total individual pieces at the bottom.
-* Autocalculate those pieces to state T20 Bonus status --> -- OR (2) Bonus! OR (4) Bonus!
-* Professions
-* Last updated field
+* Keeping tab of many of the player's values, such as Rank, Ilvl, specs
+* Store info on all classes/spec: Primary stat, Top secondary stats (based on icyveins), Gear type, Role (melee, ranged, heal, tank), CCs and utility, Pawn strings.
+* This information is then provided on the frontpage for each class, along with player's profession
+* Metadata added to "ROSTER_FRONTPAGE* This information is gathered to show a counter for each of these previously mentioned values to assess raid needs. Additionally, it shows melee/ranged ratio, tank/heal/dps ratio. 
+* Automatic timestamp when someone changes their ilvl or HoA rank.
 * Every column has an average at the bottom to compare player to team's value.
 * Attendance percentage average from the start of the tier (info gathered from Attendance tab)
 * Ranking average (info gathered from Rankings_Beta)
-* Totalscore that takes value from ilvl, ranks, legend, and set bonus
+* Totalscore that takes value from ilvl and ranks (used to be more, but they removed tier and legendaries)
 
-Totalscore = Ranks * Ilvl * Legend * T20Bonus
+((ILVL * 10) * ((HoA Ranks * 0.1) +40))
 
-* RANKS:0 to 51 =0, 52=1, additional points=0.07 (which is a full concord divided by 1/13.33 since it only gives that much for each additional)
-* Ilvl: value x 5
-* Legend: 0=1, additional points=0.2
-* T20 Bonus: 0=1, (2)=1.05, (4)=1.2
+# Char_DB
+
+Previously, all info was to be modified by the roster in "ROSTER_FRONTPAGE". However, given the amount of auto-calculated fields and the conditional formatting, I decided to switch all the user-inputed data to its own sheet, "Char_DB" that lacks these. Now every other sheet pulls its info from that sheet, using the ID on the left and VLOOKUP functions.
 
 # Attendance TAB
 
@@ -37,3 +36,25 @@ The column TOTAL is the totality of every day of attendance since the start of O
 # Rankings TAB
 
 This window is also a backend for the admins to input the rankings of a night. It is fairly identical in layout as Attendance. The value that should be input into the cells is the average of a player's ilvl bracket ranking% for each boss fight. Currently warcraftlogs does not have an API to do this, so my work around that is friendly for non-coders is to just select the entire page of all the rankings of warcraftlogs and paste it into googlesheet. Currently I'm still working on adding this to the live sheet, but it's either going to be much lower on Ranking_Beta or it will be in its own window. I have codes that gather all the information from the cells it needs and then sums all the findings to give an average ilvl ranking, which will add the end value that you can just copy paste into that raid's rankings.
+
+# Death TAB
+
+This sheet is meant to keep track of every 2 first deaths of every player in every encounter, regardless of a kill or a wipe. The numbers are then averaged out and shown on Roster_Frontpage.
+
+# DRS TAB
+
+This is where I now store the 2 scrappers.
+
+1. 1st and 2nd death Scrapper
+    To use this, you'll want to go on a warcraftlog entry and click death. At the bottom, you should see a table with %. Copy the entire thing and paste it into the scrapper and it will calculate every one of your raider's deaths in order so you can simply copy and special paste (value only) into that day's column in the "Deaths" sheet.
+    
+2. Average ilvl bracket ranking scrapper.
+    Once needed to see the average of all the ilvl bracket ranks from warcraftlogs. Now they make it easier, so this scrapper serves to reorganize the names in order to be able to copy + special paste (value) into the corresponding column in the "Rankings" sheet.
+    
+# UTIL_CC
+
+Using the data in "ADMIN", it shows every CC/utility that the core has at their disposal. This is primarily to know what you have plenty of and what you are lacking.
+
+# CG_PROG
+
+This is the newest sheet. The purpose of this portion is to copy + special paste (value) from "ROSTER_FRONTPAGE" every week. The purpose of this is 2-fold. The main one is to have an idea how much progress folks are doing on gearing up as the weeks go by. The 2nd one is to ensure that folks actually update their sheet every week, otherwise, their average will be lower.
