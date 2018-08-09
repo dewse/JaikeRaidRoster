@@ -1,6 +1,6 @@
 # JaikeRaidRoster
 
-First update: I started using a googlesheet someone created to keep track of relic types and class roster for raids since we expected relic stacking to be an issue early xpac. Anyway, I've longed since then created more tabs and functionality from that original sheet. At this time this is what it containts on the main page:
+First update: I started using a googlesheet someone created to keep track of relic types and class roster for raids since we expected relic stacking to be an issue early xpac. Anyway, I've longed since then created more tabs and functionality from that original sheet. At this time this is what it contains on the main page:
 
 * Each tab automatically fills player's name in their rows.
 * Keeping tab of many of the player's values, such as Rank, Ilvl, specs
