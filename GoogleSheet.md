@@ -1,7 +1,7 @@
 # Up-to-date GoogleSheet
 
-Last modified 26th of October 2017
+Last modified 12th of August 2018
 
-Ready for Antorus with 1 year worth of 2 nights a week run for ranks and attendance.
+Ready for BFA with 1 year worth of 2 nights a week run for ranks and attendance.
 
-https://docs.google.com/spreadsheets/d/1uw-zo3O5ebJ8kRqGvnkF87Whpq1D9Mb9OxntQXI0qtk/edit?usp=sharing
+https://docs.google.com/spreadsheets/d/18qV6k7QDdPuo4OaetfO5-MogijaJZx2UtRD4KpDRO-A/edit#gid=1674909974
